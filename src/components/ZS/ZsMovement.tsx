@@ -25,9 +25,6 @@ const ZsMovement: React.FC<PropsHgr> = ({ data, loading }) => {
     chart: {
       height: 300,
       type: 'bar',
-      events: {
-        click: function (chart: any, w: any, e: any) {}
-      }
     },
     responsive: [{
       breakpoint: 480,
@@ -46,7 +43,7 @@ const ZsMovement: React.FC<PropsHgr> = ({ data, loading }) => {
     },
     dataLabels: {
       enabled: true,
-      formatter: function (val: any, opts: any) {
+      formatter: function (val: any) {
         return val + '%';
       }
     },
@@ -65,7 +62,7 @@ const ZsMovement: React.FC<PropsHgr> = ({ data, loading }) => {
     yaxis: {
       labels: {
         show: true,
-        formatter: function (val: any, opts: any) {
+        formatter: function (val: any) {
           return val + '%';
         }
       }

@@ -23,9 +23,6 @@ const HgrTable: React.FC<PropsHgr> = ({ data, loading }) => {
     chart: {
       height: 300,
       type: 'bar',
-      events: {
-        click: function (chart: any, w: any, e: any) {}
-      }
     },
     colors: ['#1E7CE0', '#51d28c', '#f7cc53', '#f34e4e', '#564ab1', '#5fd0f3'],
     plotOptions: {

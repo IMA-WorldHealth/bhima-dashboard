@@ -21,7 +21,7 @@ const EPeriodsSelect: React.FC<PeriodSelectProps> = ({ defaultPeriod, label = 'P
   const [periodKey, setPeriodKey] = useState(defaultPeriod || 'today');
   const Periods = new PeriodService();
   const [period, setPeriod] = useState(Periods.definition(periodKey)) as any;
-  const NO_PERIOD_LIMIT_KEY = 'today';
+  // const NO_PERIOD_LIMIT_KEY = 'today';
   const CUSTOM_PERIOD_KEY = 'custom';
 
   const [customSelection, setCustomSelect] = useState({
@@ -32,15 +32,6 @@ const EPeriodsSelect: React.FC<PeriodSelectProps> = ({ defaultPeriod, label = 'P
 
   const toggleSelectionOptions = () => setExpanded(!expanded);
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const toggleCustomSelection = () => {
-    if (customExpanded) {
-      // we consider the custom dates as the current period
-      customPeriodChanges();
-    } else {
-      selectPeriod(NO_PERIOD_LIMIT_KEY, true);
-    }
-  };
 
   function selectPeriod(key: Period, togglable?: boolean) {
     const periods = Periods.definition(key);
@@ -68,7 +59,7 @@ const EPeriodsSelect: React.FC<PeriodSelectProps> = ({ defaultPeriod, label = 'P
         to: periodFilter.customPeriodEnd || new Date(),
       });
     }
-  }, []);
+  }, [setPeriodKey]);
 
   useEffect(() => {
     onInit();

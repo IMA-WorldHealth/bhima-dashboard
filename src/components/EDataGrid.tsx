@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { useState, useCallback, useMemo } from 'react';
-import DataGrid, { Column, SortColumn } from 'react-data-grid';
+// import { useState, useCallback, useMemo } from 'react';
+import DataGrid, { Column } from 'react-data-grid';
 import Lottie from 'lottie-react';
 import 'react-data-grid/lib/styles.css';
 import Loader from './Loader';
@@ -27,11 +26,6 @@ interface EPropsData {
 const EDataGrid: React.FC<EPropsData> = ({
   rows,
   columns,
-  groupBy,
-  isResizeHeight,
-  rowGrouper,
-  expandedGroupIds,
-  onExpandedGroupIdsChange,
   selectedRows,
   onSelectedRowsChange,
   rowKeyGetter,
@@ -40,37 +34,20 @@ const EDataGrid: React.FC<EPropsData> = ({
   rowHeight = 50,
   height,
 }) => {
-  const [isFullScreenMode, setIsFullScreenMode] = useState(false);
-  const { document } = window;
-  const [sortColumns, setSortColumns] = useState<readonly SortColumn[]>([]);
+  // const [sortColumns, setSortColumns] = useState<readonly SortColumn[]>([]);
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const onSortColumnsChange = useCallback((sortColumnss: SortColumn[]) => {
-    setSortColumns(sortColumnss.slice(-1));
-  }, []);
+  // const sortedRows = useMemo(():  any[] => {
+  //   if (sortColumns.length === 0) return rows;
+  //   const { columnKey, direction } = sortColumns[0];
 
-  const toggleFullScreen = () => {
-    if (!document.fullscreenElement && !document.fullscreenElement &&
-      !document.fullscreenElement) {
-      setIsFullScreenMode(false);
-    } else {
-      setIsFullScreenMode(true);
-    }
-  };
+  //   let sortedRow: any[] = [...rows];
 
+  //   if (direction === 'ASC') {
+  //     sortedRow = sortedRow.sort((a, b) => a[columnKey].localeCompare(b[columnKey]));
+  //   }
 
-  const sortedRows = useMemo(():  any[] => {
-    if (sortColumns.length === 0) return rows;
-    const { columnKey, direction } = sortColumns[0];
-
-    let sortedRow: any[] = [...rows];
-
-    if (direction === 'ASC') {
-      sortedRow = sortedRow.sort((a, b) => a[columnKey].localeCompare(b[columnKey]));
-    }
-
-    return direction === 'DESC' ? sortedRow.reverse() : sortedRow;
-  }, [rows, sortColumns]);
+  //   return direction === 'DESC' ? sortedRow.reverse() : sortedRow;
+  // }, [rows, sortColumns]);
 
 
   function EmptyRowsRenderer() {
@@ -91,16 +68,16 @@ const EDataGrid: React.FC<EPropsData> = ({
     <div className="p-0">
       <DataGrid
         columns={columns}
-        rows={sortedRows}
+        rows={rows}
         renderers={{ noRowsFallback: <EmptyRowsRenderer /> }}
         className={`fill-grid rdg-light card shadow-xl`}
         defaultColumnOptions={{ sortable: true, resizable: true }}
         direction="ltr"
-        style={{ height: isResizeHeight ? height || 550 : isFullScreenMode ? 800 : height || 650 }}
+        style={{ height: height || 550 }}
         rowHeight={rowHeight}
         // expandedGroupIds={expandedGroupIds}
         // onExpandedGroupIdsChange={onExpandedGroupIdsChange}
-        sortColumns={sortColumns}
+        // sortColumns={sortColumns}
         // onSortColumnsChange={onSortColumnsChange}
         selectedRows={selectedRows}
         onSelectedRowsChange={onSelectedRowsChange}

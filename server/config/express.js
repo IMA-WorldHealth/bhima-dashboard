@@ -2,9 +2,9 @@ import helmet from 'helmet';
 import { json } from 'express';
 import morgan from 'morgan';
 import debug from 'debug';
-import cors from 'cors';
+// import cors from 'cors';
 import cookieParser from 'cookie-parser';
-import corsOptions from './corsOptions.js';
+// import corsOptions from './corsOptions.js';
 
 const debugHTTP = debug('http');
 
@@ -37,8 +37,8 @@ export function attach(app, http) {
   // Add json body parser
   app.use(json());
 
-  // Add cors
-  app.use(cors(corsOptions));
+  // // Add cors
+  // app.use(cors(corsOptions));
 
   // Add cookie parser
   app.use(cookieParser());
