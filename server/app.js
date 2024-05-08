@@ -24,7 +24,7 @@ const debug = require('debug')('app');
 const { attach } = require('./config/express');
 
 const app = express();
-const port = process.env.PORT_SERVER || 8092;
+const port = process.env.PORT || 8092;
 const mode = process.env.NODE_ENV;
 // server creation and listen to a port
 const startingMsg = () => debug(`Dashboard: Server started in mode ${mode} on port ${port}.`);
