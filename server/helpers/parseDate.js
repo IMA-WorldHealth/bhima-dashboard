@@ -1,8 +1,8 @@
-import moment from "moment";
-import PeriodService from "./period.js";
+const moment = require("moment");
+const PeriodService = require("./period");
 
 const dateFormat = 'YYYY-MM-DD';
-export const parseDate = (params) => {
+exports.parseDate = (params) => {
   const period = new PeriodService(params.client_timestamp);
   const targetPeriod = period.lookupPeriod(params.periode);
 

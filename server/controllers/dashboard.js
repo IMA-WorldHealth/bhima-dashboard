@@ -1,7 +1,7 @@
-import db from '../helpers/db.js';
-import { parseDate } from '../helpers/parseDate.js';
+const db = require('../helpers/db');
+const { parseDate } = require('../helpers/parseDate');
 
-export const dashboard = async (req, res, next) => {
+exports.dashboard = async (req, res, next) => {
   try {
     const params = parseDate(req.query);
     const sqlPercentage = `

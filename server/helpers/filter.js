@@ -349,4 +349,4 @@ class FilterParser {
 }
 
 
-export default FilterParser;
+module.exports = FilterParser;

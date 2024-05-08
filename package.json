@@ -2,7 +2,6 @@
   "name": "bhima-chart",
   "private": true,
   "version": "1.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "dev:server": "nodemon ./server/app.js",

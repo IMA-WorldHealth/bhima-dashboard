@@ -1,5 +1,5 @@
-import mysql from 'mysql';
-import debug from 'debug';
+const mysql = require('mysql');
+const debug = require('debug');
 
 
 class DatabaseConnector {
@@ -44,4 +44,4 @@ class DatabaseConnector {
   }
 }
 
-export default new DatabaseConnector();
+module.exports = new DatabaseConnector();

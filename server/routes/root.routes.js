@@ -1,4 +1,4 @@
-import { Router } from 'express';
+const { Router } = require('express');
 const router = Router();
 
 // middleware that is specific to this router
@@ -11,4 +11,4 @@ router.get('/', (req, res, next) => {
   res.status(200).json({ message: 'You are here /' });
 });
 
-export default router;
+module.exports = router;

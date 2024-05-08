@@ -1,9 +1,9 @@
-import helmet from 'helmet';
-import { json } from 'express';
-import morgan from 'morgan';
-import debug from 'debug';
+const helmet = require('helmet');
+const { json } = require('express');
+const morgan = require('morgan');
+const debug = require('debug');
 // import cors from 'cors';
-import cookieParser from 'cookie-parser';
+const cookieParser = require('cookie-parser');
 // import corsOptions from './corsOptions.js';
 
 const debugHTTP = debug('http');
@@ -24,7 +24,7 @@ const useMorgan = morgan('combined', {
 });
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function attach(app, http) {
+exports.attach = (app, http) => {
   // Add morgan logger
   app.use(useMorgan);
   // hide x-powered-by

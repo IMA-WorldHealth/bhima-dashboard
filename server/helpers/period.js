@@ -1,7 +1,7 @@
 // @TODO This is an exact copy of the client 'PeriodService', this code should
 //       to determine if it's angular or node and inject accordingly - removing
 //       the duplication.
-import Moment from 'moment';
+const Moment = require('moment');
 
 class PeriodService {
   constructor(clientTimestamp) {
@@ -88,4 +88,4 @@ class PeriodService {
   }
 }
 
-export default  PeriodService;
+module.exports = PeriodService;
