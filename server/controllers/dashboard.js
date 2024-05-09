@@ -16,6 +16,8 @@ exports.dashboard = async (req, res, next) => {
       FROM depot d
       JOIN depot c ON c.uuid = d.parent_uuid
       WHERE c.text LIKE '%BCZ%'
+      AND d.text LIKE '%FOSA%'
+      OR d.text LIKE '%HGR%'
       GROUP BY d.parent_uuid
     ) AS depot_parent
     JOIN

@@ -26,18 +26,31 @@ const ZsMovement: React.FC<PropsHgr> = ({ data, loading }) => {
       height: 300,
       type: 'bar',
     },
-    responsive: [{
-      breakpoint: 480,
-      options: {
-        chart: {
-          width: 200
-        }
-      }
-    }],
-    colors: ['#1E7CE0', '#51d28c', '#f7cc53', '#f34e4e', '#564ab1', '#5fd0f3'],
+    colors: [
+      '#1E7CE0',
+      '#51d28c',
+      '#f7cc53',
+      '#f34e4e',
+      '#564ab1',
+      '#5fd0f3',
+      '#0D1B1F',
+      '#77A52C',
+      '#AE68C9',
+      '#5F89F3',
+      '#00347D',
+      '#6500D2',
+      '#FF5900',
+      '#491D1D',
+      '#842944',
+      '#01301C',
+      '#67681C',
+      '#98007C',
+      '#985C5C',
+      '#003874',
+    ],
     plotOptions: {
       bar: {
-        columnWidth: '45%',
+        columnWidth: '25%',
         distributed: true
       }
     },
@@ -54,7 +67,28 @@ const ZsMovement: React.FC<PropsHgr> = ({ data, loading }) => {
       categories: data.map((item) => item.zone),
       labels: {
         style: {
-          colors: ['#1E7CE0', '#51d28c', '#f7cc53', '#f34e4e', '#564ab1', '#5fd0f3'],
+          colors: [
+            '#1E7CE0',
+            '#51d28c',
+            '#f7cc53',
+            '#f34e4e',
+            '#564ab1',
+            '#5fd0f3',
+            '#0D1B1F',
+            '#75A32B',
+            '#AE68C9',
+            '#5F89F3',
+            '#00347D',
+            '#6500D2',
+            '#FF5900',
+            '#491D1D',
+            '#842944',
+            '#01301C',
+            '#67681C',
+            '#98007C',
+            '#985C5C',
+            '#003874',
+          ],
           fontSize: '11px'
         }
       }

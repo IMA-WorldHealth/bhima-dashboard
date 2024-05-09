@@ -2,9 +2,8 @@ const helmet = require('helmet');
 const { json } = require('express');
 const morgan = require('morgan');
 const debug = require('debug');
-// import cors from 'cors';
+const cors  = require('cors');
 const cookieParser = require('cookie-parser');
-// import corsOptions from './corsOptions.js';
 
 const debugHTTP = debug('http');
 
@@ -37,8 +36,8 @@ exports.attach = (app, http) => {
   // Add json body parser
   app.use(json());
 
-  // // Add cors
-  // app.use(cors(corsOptions));
+  // Add cors
+  app.use(cors());
 
   // Add cookie parser
   app.use(cookieParser());

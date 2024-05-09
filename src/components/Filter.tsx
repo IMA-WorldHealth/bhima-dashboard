@@ -1,13 +1,5 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-// import {
-//   TEModal,
-//   TEModalDialog,
-//   TEModalContent,
-//   TEModalHeader,
-//   TEModalBody,
-//   TEModalFooter,
-// } from "tw-elements-react";
 import { Dialog, DialogPanel, DialogTitle, Transition, TransitionChild } from '@headlessui/react'
 import EPeriodsSelect from './EperiodSelect';
 
@@ -45,7 +37,7 @@ export const Filter: React.FC<FilterProps> = ({ data, isOpen, onClose, getFilter
               leaveFrom="opacity-100 transform-[scale(100%)]"
               leaveTo="opacity-0 transform-[scale(95%)]"
             >
-              <DialogPanel className="  w-1/3 space-y-4 border bg-white p-3 rounded-lg">
+              <DialogPanel className=" min-w-lg  space-y-4 border bg-white p-3 rounded-lg">
                 <form onSubmit={handleSubmit}>
                   <div className=" flex justify-between">
                     <DialogTitle as="h3" className="text-base/7 font-medium">
