@@ -511,5 +511,8 @@
   "TITLE_BCZ": "ESS ayant reçus du BCZ",
   "DELIVERY_PATIENT": "Livraison aux patients",
   "TEXT_PERCENTAGE": "% Utilisation de BHIMA dans les ESS",
-  "PERCENTAGE": "Pourcentage"
+  "PERCENTAGE": "Pourcentage",
+  "BACK_HOME": "Retour à la maison",
+  "NOT.404": "Cette page n'existe pas",
+  "NOT.PAGE": "La page que vous recherchez semble introuvable. Sans détour, il n'est point de voyage..."
 }
