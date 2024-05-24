@@ -1,5 +1,5 @@
-const mysql = require('mysql');
-const debug = require('debug');
+const mysql = require('mysql2');
+const debug = require('debug')('mysql');
 
 
 class DatabaseConnector {
