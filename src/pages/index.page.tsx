@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { debounce } from "lodash";
+import { debounce, orderBy } from "lodash";
 import { useCallback, useEffect, useState } from "react";
 import EFilterValue from '../components/EFilterValue';
 import { Header } from '../components/Header';
@@ -12,6 +12,7 @@ import Loader from "../components/Loader";
 import { parseFilter } from "../utils";
 import ZsMovement from "../components/ZS/ZsMovement";
 import notification from "../services/notification.service";
+import { bcz } from "@/constants";
 
 export function IndexPage() {
   const { _filters } = useAppSelector((state) => state.dashboardState);
@@ -22,7 +23,9 @@ export function IndexPage() {
     fosa: [],
     movements: [],
   })
+  const [movements, setMovements] = useState<MvtDash[]>([]);
   const [loading, setLoading] = useState(false);
+
   const onClear = (key: string) => {
     dispatch(clearKeyDash(key, () => { 
     }) as any);
@@ -34,6 +37,14 @@ export function IndexPage() {
     try {
       const params = parseFilter(_filters.periode);
       const res = await stats(params);
+      const [zs] = bcz;
+      const movement = res.movements.map((mv) => {
+        const label = mv.zone.toLowerCase().split(' ').join('_').replace('_-_', '_');
+        const totalChildren = zs[label];
+        const value = Math.round(mv.children_total / (totalChildren || mv.value) * 100.0);
+        return { zone: mv.zone, value, nb_ess_mvt: mv.children_total, nb_ess: totalChildren || mv.value }
+      });
+      setMovements(orderBy(movement, ['value'], "desc"));
       setFields(res);
     } catch (err: any) {
       notification.handleError(err)
@@ -65,7 +76,7 @@ export function IndexPage() {
               <HgrTable data={field.hgr} loading={false} />
             </div>
             <div className="mt-4">
-              <ZsMovement data={field.movements} loading={false} />
+              <ZsMovement data={movements} loading={false} />
             </div>
           </div>
         )}

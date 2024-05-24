@@ -7,7 +7,7 @@ import ReactApexChart from 'react-apexcharts';
 import EDataGrid from '../EDataGrid';
 
 interface PropsHgr {
-  data: ZData[];
+  data: MvtDash[];
   loading: boolean;
 } 
 
@@ -50,7 +50,7 @@ const ZsMovement: React.FC<PropsHgr> = ({ data, loading }) => {
     ],
     plotOptions: {
       bar: {
-        columnWidth: '25%',
+        columnWidth: '55%',
         distributed: true
       }
     },
@@ -58,6 +58,10 @@ const ZsMovement: React.FC<PropsHgr> = ({ data, loading }) => {
       enabled: true,
       formatter: function (val: any) {
         return val + '%';
+      },
+      style: {
+        fontSize: '10px',
+        color: '#5F6369'
       }
     },
     legend: {
@@ -89,7 +93,7 @@ const ZsMovement: React.FC<PropsHgr> = ({ data, loading }) => {
             '#985C5C',
             '#003874',
           ],
-          fontSize: '11px'
+          fontSize: '10px'
         }
       }
     },
@@ -98,7 +102,7 @@ const ZsMovement: React.FC<PropsHgr> = ({ data, loading }) => {
         show: true,
         formatter: function (val: any) {
           return val + '%';
-        }
+        },
       }
     },
     title: {
@@ -106,12 +110,12 @@ const ZsMovement: React.FC<PropsHgr> = ({ data, loading }) => {
       align: 'center',
       floating: true,
       style: {
-        fontWeight: 500
+        fontWeight: 500,
       }
     },
   };
 
-  const columns = useMemo<Column<ZData>[]>(
+  const columns = useMemo<Column<MvtDash>[]>(
     () => [
       {
         name: `${t('ZS')}`,
@@ -121,6 +125,14 @@ const ZsMovement: React.FC<PropsHgr> = ({ data, loading }) => {
         name: `${t('PERCENTAGE')}`,
         key: 'value',
         renderCell: ({ row }) => <span>{row.value + '%'}</span>
+      },
+      {
+        name: `${t('NBRE_MVT')}`,
+        key: 'nb_ess_mvt'
+      },
+      {
+        name: `${t('NBRE_ESS')}`,
+        key: 'nb_ess'
       }
     ], [t]
   );

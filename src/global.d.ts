@@ -17,11 +17,18 @@ interface BhiChartData {
   }[];
 }
 
+interface Movement {
+  zone: string;
+  value: number;
+  percentage: number;
+  children_total: number;
+}
+
 interface BHServerData {
   bcz: ZData[];
   hgr: ZData[];
   fosa: ZData[];
-  movements: ZData[];
+  movements: Movement[];
 }
 
 interface PeriodBhi {
@@ -35,4 +42,11 @@ interface PeriodBhi {
   };
   customPeriodStart?: string;
   customPeriodEnd?: string;
+}
+
+interface MvtDash {
+  zone: string;
+  value: number;
+  nb_ess_mvt: number;
+  nb_ess: number;
 }

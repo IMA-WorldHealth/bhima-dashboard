@@ -7,8 +7,8 @@ exports.dashboard = async (req, res, next) => {
     const sqlPercentage = `
     SELECT 
       depot_parent.text AS zone,
-      depot_parent.total, COUNT(children.depot) AS children_total,
-      ROUND(COUNT(children.depot) / depot_parent.total * 100.0) AS value,
+      depot_parent.total AS value, COUNT(children.depot) AS children_total,
+      ROUND(COUNT(children.depot) / depot_parent.total * 100.0) AS percentage,
       children.movement AS chilren_movement
     FROM
     (
@@ -20,7 +20,7 @@ exports.dashboard = async (req, res, next) => {
       OR d.text LIKE '%HGR%'
       GROUP BY d.parent_uuid
     ) AS depot_parent
-    JOIN
+    LEFT JOIN
     (
       SELECT d.text AS depot, d.parent_uuid, COUNT(s.depot_uuid) AS movement
       FROM stock_movement s
@@ -39,7 +39,6 @@ exports.dashboard = async (req, res, next) => {
     const movements = await db.exec(sqlPercentage, [params.start, params.end]);
     return res.status(201).json({ bcz: data[0], hgr: hgr[0], fosa: healthZone[0], movements });
   } catch (error) {
-    console.log(error);
     next(error);
   }
 }

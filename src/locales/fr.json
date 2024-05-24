@@ -514,5 +514,7 @@
   "PERCENTAGE": "Pourcentage",
   "BACK_HOME": "Retour à la maison",
   "NOT.404": "Cette page n'existe pas",
-  "NOT.PAGE": "La page que vous recherchez semble introuvable. Sans détour, il n'est point de voyage..."
+  "NOT.PAGE": "La page que vous recherchez semble introuvable. Sans détour, il n'est point de voyage...",
+  "NBRE_MVT": "Nb ESS mouvementés",
+  "NBRE_ESS": "Nb ESS"
 }

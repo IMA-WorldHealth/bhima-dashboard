@@ -84,7 +84,7 @@ const HgrTable: React.FC<PropsHgr> = ({ data, loading }) => {
             '#985C5C',
             '#003874',
           ],
-          fontSize: '11px'
+          fontSize: '8px'
         }
       }
     },
@@ -131,7 +131,7 @@ const HgrTable: React.FC<PropsHgr> = ({ data, loading }) => {
           height={400}
         />
         <div className="card bg-white shadow-xl px-3 py-6" >
-          <ReactApexChart dir="ltr" className="apex-charts" series={series} options={options as any} type="bar" height={300} />
+          <ReactApexChart dir="ltr" className="apex-charts" series={series} options={options as any} type="bar" height={310} />
         </div>
       </div>
     </div>
