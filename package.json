@@ -48,7 +48,7 @@
     "vite-tsconfig-paths": "^4.3.2"
   },
   "devDependencies": {
-    "@types/react": "^18.2.66",
+    "@types/react": "^19.1.0",
     "@types/react-dom": "^18.2.22",
     "@types/react-flatpickr": "^3.8.11",
     "@types/react-resizable": "^3.0.7",
